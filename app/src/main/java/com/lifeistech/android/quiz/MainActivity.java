@@ -152,8 +152,8 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
         x = x + gx;
         y = y + gy;
         z = z + gz;
-        Log.d("tags",String.valueOf(x));
-        Log.d("tags",String.valueOf(y));
+//        Log.d("tags",String.valueOf(x));
+//        Log.d("tags",String.valueOf(y));
 
 
 
@@ -193,7 +193,7 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 
     private void checkAnswer() {
         int direction = checkDirection();
-//       Log.d("DIRECTION", String.valueOf(direction));
+//      Log.d("DIRECTION", String.valueOf(direction));
 
         if (answerDirection == direction) {
 //            正解のとき
@@ -317,11 +317,11 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
         gx = event.values[0];
         gy = event.values[1];
         gz = event.values[2];
-        Log.d("acc", "X-axis : " + gx + "\n" +
-                "Y-axis : " + gy + "\n" +
-                "Z-axis : " + gz + "\n");
-        checkAnswer();
 
+//          Log.d("acc", "X-axis : " + gx + "\n" +
+//                "Y-axis : " + gy + "\n" +
+//                "Z-axis : " + gz + "\n");
+                  checkAnswer();
 
     }
 
