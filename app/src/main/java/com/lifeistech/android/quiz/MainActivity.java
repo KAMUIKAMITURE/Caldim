@@ -158,34 +158,51 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 
 
         if (recordNumber == 5) {
-            x = 0;
-            y = 0;
-            z = 0;
+
             recordNumber = 0;
 //            if (y / 5 < -5) {
             if (y < -25){
+                x = 0;
+                y = 0;
+                z = 0;
                 return DIRECTION_UP;
+
+
 //                number6 = 1;
 //                checkAnswer();
 //            } else if (y / 5 > 5) {
             } else if (y  > 25) {
+                x = 0;
+                y = 0;
+                z = 0;
                 return DIRECTION_DOWN;
+
 //                number6 = 2;
 //                checkAnswer();
 //            } else if (x / 5 > 5) {
             } else if (x  > 25) {
+                x = 0;
+                y = 0;
+                z = 0;
                 return DIRECTION_LEFT;
+
 //                number6 = 3;
 //                checkAnswer();
 //            } else if (x / 5 < -5) {
             } else if (x  < -25) {
+                x = 0;
+                y = 0;
+                z = 0;
                 return DIRECTION_RIGHT;
+
 //                number6 = 4;
 //                checkAnswer();
             }
         }
         return DIRECTION_NONE;
 //                number6 = 0;
+
+
 
 
     }
