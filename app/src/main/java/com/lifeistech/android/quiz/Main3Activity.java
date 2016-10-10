@@ -26,7 +26,7 @@ public class Main3Activity extends AppCompatActivity {
 
 
           String[] texts = {
-                "今まで正解した問題",String.valueOf(Level)
+                "今まで正解した問題",String.valueOf(Level),"次のレベルアップまでに必要な正答数"
 
         };
 

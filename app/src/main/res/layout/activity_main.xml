@@ -18,18 +18,10 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:background="@drawable/waku"
-        android:textSize="18sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/answer2"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/waku"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_marginEnd="500dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="150dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,31 +43,45 @@
         android:layout_alignLeft="@+id/anser1"
         android:layout_alignStart="@+id/anser1"
         android:background="@drawable/waku"
+        android:textSize="18sp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/answer2"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/waku"
         android:textSize="18sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/count2"
-        android:layout_below="@+id/answer3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="77dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
         android:id="@+id/count1"
-        android:layout_above="@+id/count2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp" />
+        android:layout_marginBottom="49dp"
+        android:layout_above="@+id/answer3"
+        android:layout_alignLeft="@+id/sign"
+        android:layout_alignStart="@+id/sign" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/sign"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/count2"
+        android:layout_alignStart="@+id/count2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/count2"
+        android:layout_marginTop="45dp"
         android:layout_below="@+id/answer3"
         android:layout_centerHorizontal="true" />
 

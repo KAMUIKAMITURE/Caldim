@@ -147,13 +147,13 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 
 
 
-    private int checkDerection() {
+    private int checkDirection() {
         recordNumber++;
         x = x + gx;
         y = y + gy;
         z = z + gz;
-//        Log.d("tags",String.valueOf(x));
-//        Log.d("tags",String.valueOf(y));
+        Log.d("tags",String.valueOf(x));
+        Log.d("tags",String.valueOf(y));
 
 
 
@@ -162,19 +162,23 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
             y = 0;
             z = 0;
             recordNumber = 0;
-            if (y / 5 < -5) {
+//            if (y / 5 < -5) {
+            if (y < -25){
                 return DIRECTION_UP;
 //                number6 = 1;
 //                checkAnswer();
-            } else if (y / 5 > 5) {
+//            } else if (y / 5 > 5) {
+            } else if (y  > 25) {
                 return DIRECTION_DOWN;
 //                number6 = 2;
 //                checkAnswer();
-            } else if (x / 5 > 5) {
+//            } else if (x / 5 > 5) {
+            } else if (x  > 25) {
                 return DIRECTION_LEFT;
 //                number6 = 3;
 //                checkAnswer();
-            } else if (x / 5 < -5) {
+//            } else if (x / 5 < -5) {
+            } else if (x  < -25) {
                 return DIRECTION_RIGHT;
 //                number6 = 4;
 //                checkAnswer();
@@ -188,8 +192,8 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 
 
     private void checkAnswer() {
-        int direction = checkDerection();
-        Log.d("DIRECTION", String.valueOf(direction));
+        int direction = checkDirection();
+//       Log.d("DIRECTION", String.valueOf(direction));
 
         if (answerDirection == direction) {
 //            正解のとき
@@ -313,9 +317,9 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
         gx = event.values[0];
         gy = event.values[1];
         gz = event.values[2];
-//        Log.d("acc", "X-axis : " + gx + "\n" +
-//                "Y-axis : " + gy + "\n" +
-//                "Z-axis : " + gz + "\n");
+        Log.d("acc", "X-axis : " + gx + "\n" +
+                "Y-axis : " + gy + "\n" +
+                "Z-axis : " + gz + "\n");
         checkAnswer();
 
 
