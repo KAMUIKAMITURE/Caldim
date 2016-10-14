@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 public class Main3Activity extends AppCompatActivity {
     int nextLevel;
+    int nowLevel;
 
 
 
@@ -24,18 +25,22 @@ public class Main3Activity extends AppCompatActivity {
         int level = data.getInt("Timer",100);
         if (Level < 100) {
             nextLevel = 100;
+            nowLevel = 2;
         } else if (Level < 500) {
             nextLevel = 500;
+            nowLevel = 3;
         } else if (Level < 1000) {
             nextLevel = 1000;
+            nowLevel = 4;
         } else {
             nextLevel = 0;
+            nowLevel = 1;
         }
 
 
           String[] texts = {
                   "今まで正解した問題", String.valueOf(Level), "次のレベルアップまでに必要な正答数",
-                  String.valueOf(nextLevel)
+                  String.valueOf(nextLevel), "現在のレベル", String.valueOf(nowLevel)
 
         };
 

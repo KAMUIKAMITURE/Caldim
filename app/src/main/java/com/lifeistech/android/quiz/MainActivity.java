@@ -7,8 +7,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Handler;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -22,16 +22,7 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
     private static final int DIRECTION_RIGHT = 2;
     private static final int DIRECTION_LEFT = 3;
     private static final int DIRECTION_NONE = 4;
-
-    private TextView answerText_UP;
-    private TextView answerText_LEFT;
-    private TextView answerText_RIGHT;
-    private TextView answerText_DOWN;
-    private TextView questionText1;
-    private TextView questionText2;
-    private TextView Sign;
     Random randomQuestion = new Random();
-
     SensorManager sm;
     float gx, gy, gz;
     Handler h;
@@ -45,7 +36,13 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
     float z = 0;
     int answerDirection;
     int number6;
-
+    private TextView answerText_UP;
+    private TextView answerText_LEFT;
+    private TextView answerText_RIGHT;
+    private TextView answerText_DOWN;
+    private TextView questionText1;
+    private TextView questionText2;
+    private TextView Sign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,12 +104,12 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
             answerText_RIGHT.setText(String.valueOf(correctAnswer + 1));
             answerText_DOWN.setText(String.valueOf(correctAnswer + 10));
 
-        } else if (answerDirection == 1) {
+        } else if (answerDirection == DIRECTION_LEFT) {
             answerText_UP.setText(String.valueOf(correctAnswer + 1));
             answerText_LEFT.setText(String.valueOf(correctAnswer));
             answerText_RIGHT.setText(String.valueOf(correctAnswer + 10));
             answerText_DOWN.setText(String.valueOf(correctAnswer - 1));
-        } else if (answerDirection == 2) {
+        } else if (answerDirection == DIRECTION_RIGHT) {
             answerText_UP.setText(String.valueOf(correctAnswer - 1));
             answerText_LEFT.setText(String.valueOf(correctAnswer + 10));
             answerText_RIGHT.setText(String.valueOf(correctAnswer));
@@ -161,7 +158,7 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 
             recordNumber = 0;
 //            if (y / 5 < -5) {
-            if (y < -25){
+            if (y / 5 < -5) {
                 x = 0;
                 y = 0;
                 z = 0;
@@ -171,7 +168,7 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 //                number6 = 1;
 //                checkAnswer();
 //            } else if (y / 5 > 5) {
-            } else if (y  > 25) {
+            } else if (y / 5 > 5) {
                 x = 0;
                 y = 0;
                 z = 0;
@@ -180,7 +177,7 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 //                number6 = 2;
 //                checkAnswer();
 //            } else if (x / 5 > 5) {
-            } else if (x  > 25) {
+            } else if (x / 5 > 5) {
                 x = 0;
                 y = 0;
                 z = 0;
@@ -189,7 +186,7 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 //                number6 = 3;
 //                checkAnswer();
 //            } else if (x / 5 < -5) {
-            } else if (x  < -25) {
+            } else if (x / 5 < -5) {
                 x = 0;
                 y = 0;
                 z = 0;
