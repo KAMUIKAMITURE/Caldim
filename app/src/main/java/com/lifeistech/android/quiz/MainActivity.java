@@ -211,8 +211,9 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 
         if (answerDirection == direction) {
 //            正解のとき
+            scoreNumber++;
             make();
-            hozon();
+
 
         } else if (direction != DIRECTION_NONE) {
 //          不正解のとき
@@ -281,12 +282,12 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 //            }
 //        }
 //
+
 //   }
 
     public void hozon() {
-        scoreNumber++;
         SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
-        int Level = data.getInt("LevelSave", 100);
+        int Level = data.getInt("LevelSave", 0);
         int all = scoreNumber + Level;
         Log.d("kamui2", String.valueOf(data));
         SharedPreferences.Editor editor = data.edit();
@@ -323,6 +324,7 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
     protected void onDestroy() {
         super.onDestroy();
         h.removeCallbacks(this);
+        hozon();
     }
 
     @Override

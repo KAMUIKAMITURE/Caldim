@@ -20,18 +20,19 @@ public class Main3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
-        Log.d("kamui",String.valueOf(data.getInt("LevelSave",100)));
-        int Level = data.getInt("LevelSave",100);
+
+        Log.d("kamui", String.valueOf(data.getInt("LevelSave", 0)));
+        int Level = data.getInt("LevelSave", 0);
         int level = data.getInt("Timer",100);
         if (Level < 100) {
             nextLevel = 100;
-            nowLevel = 2;
+            nowLevel = 1;
         } else if (Level < 500) {
             nextLevel = 500;
-            nowLevel = 3;
+            nowLevel = 2;
         } else if (Level < 1000) {
             nextLevel = 1000;
-            nowLevel = 4;
+            nowLevel = 3;
         } else {
             nextLevel = 0;
             nowLevel = 1;
