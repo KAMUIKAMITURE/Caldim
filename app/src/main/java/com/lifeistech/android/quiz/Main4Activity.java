@@ -12,9 +12,11 @@ import static com.lifeistech.android.quiz.R.drawable.hirameki;
 
 public class Main4Activity extends AppCompatActivity {
     int Level;
+    int check;
     ImageView imageView;
     private int data;
     private Integer data1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,26 +25,30 @@ public class Main4Activity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.boss);
         SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
         Level = data.getInt("LevelSave", 0);
-        imageView.equals("bossimage");
+        check = data.getInt("imagecount", 0);
+        if (check == 1) {
+            imageView.setImageResource(R.drawable.hirameki);
+        }
+
     }
 
 
     public void charenge(View v) {
+
         if (Level < 100) {
             Toast toast = Toast.makeText(Main4Activity.this, "まだレベルが足りないよ！もっと頑張ろう！", Toast.LENGTH_LONG);
             toast.show();
         } else if (Level < 500) {
-            Toast toast = Toast.makeText(Main4Activity.this, "やった！ボスを倒したぞ。次のボスを倒そう！", Toast.LENGTH_LONG);
-            toast.show();
-            imageView.setImageResource(hirameki);
-
-
-            imageView.equals("hirameki");
-
-            if (imageView.equals("hirameki")) {
-                Toast.makeText(Main4Activity.this, "まだレベルが足りないよ！もっと頑張ろう！", Toast.LENGTH_LONG);
+            if (check == 1) {
+                Toast.makeText(Main4Activity.this, "まだレベルが足りないよ！もっと頑張ろう！", Toast.LENGTH_LONG).show();
+            } else {
+                Toast toast = Toast.makeText(Main4Activity.this, "やった！ボスを倒したぞ。次のボスを倒そう！", Toast.LENGTH_LONG);
                 toast.show();
+                imageView.setImageResource(hirameki);
+                check = 1;
+
             }
+
         } else if (Level < 1000) {
             Toast toast = Toast.makeText(Main4Activity.this, "まだレベルが足りないよ！もっと頑張ろう！", Toast.LENGTH_LONG);
             toast.show();
@@ -54,10 +60,11 @@ public class Main4Activity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (imageView.equals("hirameki")) {
+        if (check == 1) {
             SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = data.edit();
             editor.putInt("bossimage", hirameki);
+            editor.putInt("imagecount", check);
             editor.apply();
         }
     }

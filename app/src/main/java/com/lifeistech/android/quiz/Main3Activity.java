@@ -11,6 +11,10 @@ import android.widget.ListView;
 public class Main3Activity extends AppCompatActivity {
     int nextLevel;
     int nowLevel;
+//    ListView listView;
+//
+//    static List<String> items = new ArrayList<String>();
+//    static ArrayAdapter<String> adapter;
 
 
 
@@ -19,23 +23,42 @@ public class Main3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+// listView = (ListView)findViewById(R.id.listView);
+
+
+//        adapter =
+//                new ArrayAdapter<String>(
+//                        this,
+//                        R.layout.listView,
+//                        R.id.listViewLine,
+//                        items
+//                        );
+//
+//        listView.setAdapter(adapter);
+
+
         SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
 
         Log.d("kamui", String.valueOf(data.getInt("LevelSave", 0)));
         int Level = data.getInt("LevelSave", 0);
-        int level = data.getInt("Timer",100);
+
         if (Level < 100) {
             nextLevel = 100;
             nowLevel = 1;
+        } else if (Level < 300) {
+            nextLevel = 300;
+            nowLevel = 2;
         } else if (Level < 500) {
             nextLevel = 500;
-            nowLevel = 2;
-        } else if (Level < 1000) {
-            nextLevel = 1000;
             nowLevel = 3;
-        } else {
-            nextLevel = 0;
-            nowLevel = 1;
+        } else if (Level < 800) {
+
+            nextLevel = 800;
+            nowLevel = 4;
+        } else if (Level < 1100) {
+            nextLevel = 1100;
+            nowLevel = 5;
+
         }
 
 
