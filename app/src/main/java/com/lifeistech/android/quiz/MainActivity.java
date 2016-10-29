@@ -49,6 +49,7 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         answerText_UP = (TextView) findViewById(R.id.anser1);
         answerText_LEFT = (TextView) findViewById(R.id.answer2);
         answerText_RIGHT = (TextView) findViewById(R.id.answer3);

@@ -22,6 +22,7 @@ public class Main4Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
+
         imageView = (ImageView) findViewById(R.id.boss);
         SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
         Level = data.getInt("LevelSave", 0);
