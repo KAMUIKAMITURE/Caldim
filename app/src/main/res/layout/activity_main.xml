@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -95,10 +94,8 @@
         android:layout_width="40dp"
         android:layout_height="60dp"
         android:layout_centerVertical="true"
-
-
         android:layout_toRightOf="@+id/answer2"
-        app:srcCompat="@drawable/migi" />
+        android:src="@drawable/migi" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -106,7 +103,7 @@
         android:layout_height="60dp"
         android:layout_below="@+id/anser1"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/sita" />
+        android:src="@drawable/sita" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -115,7 +112,7 @@
         android:layout_above="@+id/answer4"
         android:layout_alignLeft="@+id/imageView3"
         android:layout_alignStart="@+id/imageView3"
-        app:srcCompat="@drawable/ue" />
+        android:src="@drawable/ue" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -124,6 +121,6 @@
         android:layout_alignTop="@+id/imageView"
         android:layout_toLeftOf="@+id/answer3"
         android:layout_toStartOf="@+id/answer3"
-        app:srcCompat="@drawable/hidari" />
+        android:src="@drawable/hidari" />
 
 </RelativeLayout>

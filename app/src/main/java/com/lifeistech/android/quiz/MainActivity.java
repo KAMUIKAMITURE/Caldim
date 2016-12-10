@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Random;
@@ -35,7 +36,8 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
     float y = 0;
     float z = 0;
     int answerDirection;
-    int number6;
+    int all;
+    int Level;
     private TextView answerText_UP;
     private TextView answerText_LEFT;
     private TextView answerText_RIGHT;
@@ -50,6 +52,10 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
         setContentView(R.layout.activity_main);
 
 
+        SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
+        Level = data.getInt("LevelSave", 0);
+
+
         answerText_UP = (TextView) findViewById(R.id.anser1);
         answerText_LEFT = (TextView) findViewById(R.id.answer2);
         answerText_RIGHT = (TextView) findViewById(R.id.answer3);
@@ -59,7 +65,7 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
         Sign = (TextView) findViewById(R.id.sign);
         h = new Handler();
         h.postDelayed( this, 500);
-        SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
+
 
 
         sm = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -96,7 +102,7 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
             this.Sign.setText("-");
             minus();
         } else if (sign == 2) {
-            this.Sign.setText("*");
+            this.Sign.setText("×");
             kakeru();
         }
         if (answerDirection == DIRECTION_UP) {
@@ -208,12 +214,32 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 
     private void checkAnswer() {
         int direction = checkDirection();
+        all = scoreNumber + Level;
 //      Log.d("DIRECTION", String.valueOf(direction));
 
         if (answerDirection == direction) {
 //            正解のとき
             scoreNumber++;
-            make();
+
+            if (all == 1) {
+                Toast toast = Toast.makeText(MainActivity.this, "レベルが上がったよ！スタート画面からボスに挑戦だ", Toast.LENGTH_SHORT);
+                toast.show();
+                make();
+            } else if (all == 300) {
+                Toast toast = Toast.makeText(MainActivity.this, "レベルが上がったよ！スタート画面からボスに挑戦だ", Toast.LENGTH_SHORT);
+                toast.show();
+                make();
+            } else if (all == 500) {
+                Toast toast = Toast.makeText(MainActivity.this, "レベルが上がったよ！スタート画面からボスに挑戦だ", Toast.LENGTH_SHORT);
+                toast.show();
+                make();
+            } else if (all == 800) {
+                Toast toast = Toast.makeText(MainActivity.this, "レベルが上がったよ！スタート画面からボスに挑戦だ", Toast.LENGTH_SHORT);
+                toast.show();
+                make();
+            } else {
+                make();
+            }
 
 
         } else if (direction != DIRECTION_NONE) {
@@ -288,8 +314,8 @@ public class MainActivity extends Activity implements Runnable, SensorEventListe
 
     public void hozon() {
         SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
-        int Level = data.getInt("LevelSave", 0);
-        int all = scoreNumber + Level;
+//        int Level = data.getInt("LevelSave", 0);
+        all = scoreNumber + Level;
         Log.d("kamui2", String.valueOf(data));
         SharedPreferences.Editor editor = data.edit();
         editor.putInt("LevelSave", all);
