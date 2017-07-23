@@ -7,9 +7,7 @@ import android.view.View;
 
 public class Main2Activity extends AppCompatActivity {
 
-
-
-
+    // 余計な改行は消したほうがいい
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
